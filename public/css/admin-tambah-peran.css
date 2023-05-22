@@ -1,0 +1,26 @@
+.admin-tambah-peran .page-content .input-wrapper {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
+.admin-tambah-peran .page-content .input-wrapper.tambah-anggota-form {
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-tambah-peran .page-content .input-wrapper.tambah-anggota-form .form-group-material {
+  width: 50%;
+  flex-grow: 1;
+}
+.admin-tambah-peran .page-content .input-wrapper.tambah-anggota-form button {
+  margin-bottom: 30px;
+}
+.admin-tambah-peran .page-content .content-body .delete_button {
+  color: #33b35a;
+}
+.admin-tambah-peran .page-content .content-body .delete_button:hover {
+  cursor: pointer;
+  font-weight: 600;
+}/*# sourceMappingURL=admin-tambah-peran.css.map */

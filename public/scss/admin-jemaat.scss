@@ -1,0 +1,26 @@
+.admin-jemaat {
+
+    .page-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .add-data-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            .form-group-material {
+                margin: 0;
+            }
+        }
+
+        .pagination-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

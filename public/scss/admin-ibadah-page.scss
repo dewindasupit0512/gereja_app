@@ -1,0 +1,29 @@
+.admin-ibadah-page {
+    
+    .page-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin: 0;
+            
+            .input-material {
+                margin: 0;
+            }
+            .form-group-material {
+                margin: 0;
+            }
+
+        }
+
+    }
+
+    
+}

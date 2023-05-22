@@ -1,0 +1,57 @@
+.ibadah-detail-page {
+    min-height: 100vh;
+    padding-top: 230px;
+
+    .container {
+
+        .back-button-container {
+            padding: 20px 0;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .back-button {
+                padding: 10px 20px;
+                display: grid;
+                place-items: center;
+                border-bottom: 2px #20d34a solid;
+                transition: 0.2s ease-in-out;
+                color: black;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #20d34a;
+                }
+            }
+        }
+
+        .page-title {
+            color: black,
+        }
+
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px 0;
+
+            .content-row {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                flex-wrap: wrap;
+    
+                * {
+                    color: black;
+                }
+    
+                .row-title {
+                    width: 200px;
+                }
+            }
+        }
+
+    }
+}

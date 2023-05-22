@@ -1,0 +1,45 @@
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    gap: 10;
+
+    .home {
+        height: unset;
+
+        .home_title {
+            font-size: 1.1rem;
+            
+        }
+    }
+
+    .contact {
+        padding: 60px 0;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            // .row {
+            //     gap: 20px;
+            // }
+
+            #message-form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                flex-wrap: wrap;
+    
+                .form-row {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
+            }
+        }
+
+
+    }
+
+}

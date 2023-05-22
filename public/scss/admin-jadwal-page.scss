@@ -1,0 +1,102 @@
+.admin-jadwal-page {
+    
+    .page-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .status-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+            width: 100%;
+            height: fit-content;
+
+            span {
+                width: fit-content;
+            }
+
+            .form-check {
+                max-width: 400px;
+            }
+
+            .button-wrapper {
+                display: flex;
+                flex-direction: row-reverse;
+                flex-grow: 1;
+                flex-basis: 200px;
+                width: 100%;
+
+                .page-save-btn {
+                    width: fit-content;
+                    background-color: grey;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: gray;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin: 0;
+            
+            .input-material {
+                margin: 0;
+            }
+            .form-group-material {
+                margin: 0;
+            }
+
+            .checkbox-wrapper {
+                width: 100%;
+                flex-basis: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                justify-content: flex-start;
+                column-gap: 20px;
+                row-gap: 10px; 
+            }
+
+        }
+
+        .table-responsive {
+            
+            tr td {
+
+                &.waktu {
+                    
+                    span {
+                        
+                        &:hover {
+                            cursor: pointer;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                
+                input {
+                    display: none;
+
+                    &.active {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+    }
+
+    
+}

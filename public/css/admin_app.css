@@ -1,0 +1,13 @@
+.admin-app {
+  display: flex;
+  flex-direction: row;
+}
+.admin-app .page-content {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}/*# sourceMappingURL=admin_app.css.map */

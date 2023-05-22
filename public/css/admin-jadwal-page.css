@@ -1,0 +1,75 @@
+.admin-jadwal-page .page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.admin-jadwal-page .page-content .status-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.admin-jadwal-page .page-content .status-wrapper span {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.admin-jadwal-page .page-content .status-wrapper .form-check {
+  max-width: 400px;
+}
+.admin-jadwal-page .page-content .status-wrapper .button-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+  flex-basis: 200px;
+  width: 100%;
+}
+.admin-jadwal-page .page-content .status-wrapper .button-wrapper .page-save-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: grey;
+}
+.admin-jadwal-page .page-content .status-wrapper .button-wrapper .page-save-btn:hover {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+}
+.admin-jadwal-page .page-content .input-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+}
+.admin-jadwal-page .page-content .input-wrapper .input-material {
+  margin: 0;
+}
+.admin-jadwal-page .page-content .input-wrapper .form-group-material {
+  margin: 0;
+}
+.admin-jadwal-page .page-content .input-wrapper .checkbox-wrapper {
+  width: 100%;
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 10px;
+}
+.admin-jadwal-page .page-content .table-responsive tr td.waktu span:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+.admin-jadwal-page .page-content .table-responsive tr td input {
+  display: none;
+}
+.admin-jadwal-page .page-content .table-responsive tr td input.active {
+  display: block;
+}/*# sourceMappingURL=admin-jadwal-page.css.map */

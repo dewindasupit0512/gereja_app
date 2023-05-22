@@ -1,0 +1,45 @@
+.ibadah-detail-page {
+  min-height: 100vh;
+  padding-top: 230px;
+}
+.ibadah-detail-page .container .back-button-container {
+  padding: 20px 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ibadah-detail-page .container .back-button-container .back-button {
+  padding: 10px 20px;
+  display: grid;
+  place-items: center;
+  border-bottom: 2px #20d34a solid;
+  transition: 0.2s ease-in-out;
+  color: black;
+}
+.ibadah-detail-page .container .back-button-container .back-button:hover {
+  cursor: pointer;
+  background-color: #20d34a;
+}
+.ibadah-detail-page .container .page-title {
+  color: black;
+}
+.ibadah-detail-page .container .page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 0;
+}
+.ibadah-detail-page .container .page-content .content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ibadah-detail-page .container .page-content .content-row * {
+  color: black;
+}
+.ibadah-detail-page .container .page-content .content-row .row-title {
+  width: 200px;
+}/*# sourceMappingURL=ibadah-detail.css.map */

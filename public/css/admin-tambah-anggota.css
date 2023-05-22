@@ -1,0 +1,51 @@
+.admin-tambah-anggota .page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.admin-tambah-anggota .page-content .input-wrapper {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+}
+.admin-tambah-anggota .page-content .input-wrapper.tambah-anggota-form {
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-tambah-anggota .page-content .input-wrapper.tambah-anggota-form .form-group-material {
+  width: 50%;
+  flex-grow: 1;
+  margin: 0;
+}
+.admin-tambah-anggota .page-content .input-wrapper .checkbox-wrapper {
+  width: 100%;
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 10px;
+}
+.admin-tambah-anggota .page-content .select-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-tambah-anggota .page-content .select-wrapper .form-select {
+  width: 60%;
+  flex-grow: 0.6;
+}
+.admin-tambah-anggota .page-content .select-wrapper .button-wrapper {
+  flex-grow: 0.4;
+  display: flex;
+  flex-direction: row-reverse;
+}/*# sourceMappingURL=admin-tambah-anggota.css.map */

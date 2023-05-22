@@ -1,0 +1,42 @@
+.admin-tambah-peran {
+
+    .page-content {
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: row;
+            column-gap: 20px;
+            row-gap: 10px;
+            flex-wrap: wrap;
+            
+
+            &.tambah-anggota-form {
+                align-items: center;
+                justify-content: space-between;
+
+                .form-group-material {
+                    width: 50%;
+                    flex-grow: 1;
+                }
+
+                button {
+                    margin-bottom: 30px;
+                }
+
+            }
+        }
+
+        .content-body {
+
+            .delete_button {
+                color: #33b35a;
+                
+                &:hover {
+                    cursor: pointer;
+                    font-weight: 600;
+                }
+            }
+        }
+
+    }
+}
