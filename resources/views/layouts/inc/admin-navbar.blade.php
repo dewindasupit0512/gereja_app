@@ -2,7 +2,7 @@
     <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-holder d-flex align-items-center justify-content-between">
-          <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="{{ route('home-page') }}" class="navbar-brand">
+          <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="fa-solid fa-bars"></i></a><a href="{{ route('home-page') }}" class="navbar-brand">
               <div class="brand-text d-none d-md-inline-block"><span></span><strong class="text-primary">GPDI APOSTOLOS</strong></div></a></div>
           <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
             <!-- Notifications dropdown-->

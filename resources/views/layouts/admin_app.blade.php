@@ -2,7 +2,14 @@
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{{ asset('admin_dependencies/vendor/bootstrap/css/bootstrap.min.css') }}">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{ asset('admin_dependencies/vendor/font-awesome/css/font-awesome.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('admin_dependencies/vendor/font-awesome/css/font-awesome.min.css') }}"> --}}
+    
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" href="{{ asset('/fontawesome/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('/fontawesome/css/brands.css') }}">
+    <link rel="stylesheet" href="{{ asset('/fontawesome/css/solid.css') }}">
+
+    
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="{{ asset('admin_dependencies/css/fontastic.css') }}">
     <!-- Google fonts - Roboto -->

@@ -21,9 +21,18 @@
                             <p>Mari datang beribadah di Gereja GPDI Tumobui</p>
                         </div>
                         <ul class="footer_about_list">
-                            <li><div class="footer_about_icon"><img src="{{ asset('images/phone-call.svg') }}" alt=""></div><span>+64 852-7794-8885</span></li>
-                            <li><div class="footer_about_icon"><img src="{{ asset('images/envelope.svg') }}" alt=""></div><span>gpditumobui@gmail.com</span></li>
-                            <li><div class="footer_about_icon"><img src="{{ asset('images/placeholder.svg') }}" alt=""></div><span>Jl.Ibantong Dalam.Kel Tumobui. Kotamobagu Timur</span></li>
+                            <li>
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+64 852-7794-8885</span>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>gpditumobui@gmail.com</span>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Jl.Ibantong Dalam.Kel Tumobui. Kotamobagu Timur</span>
+                            </li>
                         </ul>
                     </div>
                 </div>

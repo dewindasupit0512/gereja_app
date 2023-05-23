@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/plugins/OwlCarousel2-2.2.1/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/styles/main_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/styles/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
 @endpush
 
 @extends('layouts.base_layout')

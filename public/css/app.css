@@ -1,1 +1,41 @@
-/*# sourceMappingURL=app.css.map */
+.header .header_container .dropdown-container {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #060b3a;
+  padding: 20px 0;
+  transition: 0.2s ease all;
+  min-height: 0vh;
+  max-height: 100vh;
+  overflow: hidden;
+  opacity: 1;
+}
+.header .header_container .dropdown-container.hide {
+  max-height: 0vh;
+  opacity: 0;
+  padding: 0;
+}
+.header .header_container .dropdown-container.hide * {
+  display: none;
+}
+.header .header_container .dropdown-container .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+.header .header_container .dropdown-container .container ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.header .header_container .dropdown-container .container ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+.header .header_container .dropdown-container .container ul li a:hover {
+  cursor: pointer;
+  color: #20d34a;
+}/*# sourceMappingURL=app.css.map */

@@ -400,7 +400,14 @@ nav.navbar a.menu-btn:hover {
   text-decoration: none;
 }
 
-.side-navbar li a[data-toggle="collapse"]::before {
+.side-navbar li a[data-toggle="collapse"] .left-align {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+/* .side-navbar li a[data-toggle="collapse"]::before {
   content: '\f104';
   display: inline-block;
   -webkit-transform: translateY(-50%);
@@ -414,7 +421,7 @@ nav.navbar a.menu-btn:hover {
 .side-navbar li a[aria-expanded="true"]::before {
   content: '\f107';
   color: #fff;
-}
+} */
 
 .side-navbar li.active > a {
   background: #33b35a;
@@ -525,7 +532,7 @@ nav.navbar a.menu-btn:hover {
   padding-right: 5px;
 }
 
-.side-navbar.shrink ul li a[data-toggle="collapse"]::before {
+/* .side-navbar.shrink ul li a[data-toggle="collapse"]::before {
   content: '\f107';
   -webkit-transform: translateX(50%);
   transform: translateX(50%);
@@ -538,7 +545,7 @@ nav.navbar a.menu-btn:hover {
 
 .side-navbar.shrink ul li a[data-toggle="collapse"][aria-expanded="true"]::before {
   content: '\f106';
-}
+} */
 
 .side-navbar.shrink ul li ul a {
   padding-left: 10px;
