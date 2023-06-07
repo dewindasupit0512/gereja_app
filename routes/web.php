@@ -14,16 +14,10 @@ use App\Http\Livewire\Admin\JadwalDetail;
 use App\Http\Livewire\Admin\TambahAnggota;
 use App\Http\Livewire\Admin\Konsultasi as AdminKonsultasi;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/', )
 Route::get('/', HomePage::class)->name('home-page');
 Route::get('/login', Login::class)->name('login');
 Route::get('/kontak', Contact::class)->name('kontak');
 Route::get('/ibadah/{ibadah_id}', IbadahDetail::class)->name('ibadah');
-
 
 // Logout
 Route::get('/logout', function () {

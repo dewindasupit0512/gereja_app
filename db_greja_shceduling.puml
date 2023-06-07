@@ -1,0 +1,133 @@
+@startuml
+
+' users
+Entity User {
+    * id BIGINT PRIMARY_KEY
+    --
+    * name STRING
+    * email STRING UNIQUE
+    * password STRING
+    profile_img STRING
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+Entity Konsultasi {
+    * id PRIMARY_KEY
+    --
+    * name STRING
+    * email STRING
+    * phone STRING
+    * message TEXT
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' anggota
+Entity Anggota {
+    * id BIGINT PRIMARY_KEY
+    --
+    * nama STRING
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' perans
+Entity Peran {
+    * id BIGINT PRIMARY_KEY
+    --
+    * peran STRING
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' ibadah
+Entity Ibadah {
+    * id PRIMARY_KEY
+    --
+    * name STRING
+    * name_slug STRING
+    * hari INTEGER
+    ' MINGGU 0, SABTU 6
+    * jam TIME
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' jadwal_generates
+Entity JadwalGenerate {
+    * id PRIMARY_KEY
+    --
+    * active_status BOOLEAN
+    --
+    * ibadah_id BIGINT FOUREIGN(Ibadah.id)
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' jadwal_ibadah
+Entity JadwalIbadah {
+    * id PRIMARY_KEY
+    --
+    * waktu DATETIME
+    --
+    * tempat_ibadah BIGINT FOUREIGN(Jemaat.id)
+    * generate_id BIGINT FOUREIGN(JadwalGenerate.id)
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' jemaat
+Entity Jemaat {
+    * id PRIMARY_KEY
+    --
+    * nama STRING
+    * keluarga STRING
+    * tanggal_lahir DATE
+    * rayon INTEGER
+    * jenis_kelamin STRING
+    * status STRING
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' pelayanan_ibadah
+Entity PelayananIbadah {
+    * id PRIMARY_KEY
+    --
+    * id_peran_anggota BIGINT FOUREIGN(PeranAnggota.id)
+    * id_jadwal_ibadah BIGINT FOUREIGN(JadwalIbadah.id)
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+' peran_anggota
+Entity PeranAnggota {
+    * id PRIMARY_KEY
+    --
+    * id_anggota BIGINT FOUREIGN(Anggota.id)
+    * id_peran BIGINT FOUREIGN(Peran.id)
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
+JadwalGenerate }o--|| Ibadah
+JadwalIbadah }o--|| Jemaat
+JadwalIbadah }|--|| JadwalGenerate
+PelayananIbadah }o--|| PeranAnggota
+PelayananIbadah }|--|| JadwalIbadah
+PeranAnggota }o--|| Anggota
+PeranAnggota }o--|| Peran
+
+
+@enduml

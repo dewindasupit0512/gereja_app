@@ -1,0 +1,56 @@
+@startuml TambahJemaat
+' Declare
+actor Admin as admin
+boundary HalamanLogin as login_page
+boundary HalamanAdmin as admin_page
+boundary HalamanDataJemaat as jemaat_page
+control TambahJemaatController as jemaat_page_controller
+entity Jemaat as jemaat
+database TabelJemaat as jemaat_table
+
+
+' Flow
+activate admin
+admin -> login_page : username, password
+
+activate login_page
+login_page -> admin_page : buka halaman admin
+deactivate login_page
+activate admin_page
+
+admin_page -> jemaat_page : buka halaman data jemaat
+activate jemaat_page
+
+activate jemaat_page
+jemaat_page -> jemaat_page_controller : proses data Jemaat
+activate jemaat_page_controller
+jemaat_page_controller -> jemaat_page_controller : validasi data Jemaat
+activate jemaat_page_controller #Yellow
+jemaat_page_controller -> jemaat_page :  validasi gagal
+jemaat_page_controller -> jemaat : data Jemaat tervalidasi
+deactivate jemaat_page_controller
+
+activate jemaat
+jemaat -> jemaat_table : simpan data Jemaat
+activate jemaat_table
+
+jemaat_table -> jemaat : data Jemaat tersimpan
+deactivate jemaat_table
+
+jemaat -> jemaat_page_controller
+deactivate jemaat
+
+jemaat_page_controller -> jemaat_page :  data Jemaat tersimpan
+deactivate jemaat_page_controller
+
+jemaat_page -> admin_page : keluar halaman tambah Jemaat
+deactivate jemaat_page
+
+admin_page -> admin : logout
+deactivate admin_page
+deactivate admin
+
+
+
+
+@enduml

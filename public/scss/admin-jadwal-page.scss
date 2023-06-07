@@ -75,7 +75,15 @@
             
             tr td {
 
-                &.waktu {
+                &.col {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                }
+
+                &.waktu, &.tempat {
                     
                     span {
                         
@@ -86,11 +94,17 @@
                     }
                 }
                 
-                input {
+                form {
                     display: none;
 
                     &.active {
                         display: block;
+                    }
+
+                    .save-edited-btn {
+                        margin-top: 5px;
+                        font-size: 0.8rem;
+                        padding: 10px;
                     }
                 }
             }

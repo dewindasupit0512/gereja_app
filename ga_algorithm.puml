@@ -1,0 +1,20 @@
+@startuml
+
+start
+:Mengambil data;
+:Populasi awal;
+repeat :iterasi;
+if (Seleksi kromosom) then (terpilih)
+    :Crossover;
+    note left
+        buat populasi baru
+    end note
+    :Mutasi;
+endif
+:hitung nilai fitness;
+
+repeat while (Evaluasi Nilai fitness) is (jumlah iterasi belum tercapai) 
+
+
+stop
+@enduml

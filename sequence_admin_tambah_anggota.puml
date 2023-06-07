@@ -1,0 +1,80 @@
+@startuml TambahAnggota
+
+' Declare
+actor Admin as admin
+boundary HalamanLogin as login_page
+boundary HalamanAdmin as admin_page
+boundary TambahAnggota as member_add
+control TambahAnggotaController as member_add_controller
+database TabelPeran as role_table
+entity Peran as role
+entity Anggota as member
+database TabelAnggota as member_table
+
+
+' Flow
+activate admin
+admin -> login_page : username, password
+
+activate login_page
+login_page -> admin_page : buka halaman admin
+deactivate login_page
+
+activate admin_page
+admin_page -> member_add : buka halaman tambah anggota
+activate member_add
+activate role_table
+
+role_table -> member_add : daftar peran
+deactivate role_table
+
+' role_table -> role : ambil daftar peran
+' activate role
+' deactivate role_table
+
+member_add -> member_add_controller : proses data anggota
+activate member_add_controller
+
+member_add_controller -> member_add_controller : validasi data anggota
+activate member_add_controller #Yellow
+
+
+' role -> member_add_controller : data peran
+member_add_controller -> member_add : validasi gagal
+member_add_controller -> member : data anggota tervalidasi
+deactivate member_add_controller
+
+
+activate member
+activate role
+member <-> role : peran terpilih
+member -> member_table : simpan data anggota
+activate member_table
+
+member_table -> member : data anggota tersimpan
+deactivate member_table
+
+member -> member_add_controller
+deactivate role
+deactivate member
+
+member_add_controller -> member_add : data anggota tersimpan
+deactivate member_add_controller
+
+member_add -> admin_page : keluar halaman tambah anggota
+deactivate member_add
+
+admin_page -> admin : logout
+deactivate admin_page
+deactivate admin
+
+
+
+
+
+
+
+
+
+
+@enduml

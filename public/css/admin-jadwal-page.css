@@ -63,13 +63,25 @@
        column-gap: 20px;
   row-gap: 10px;
 }
-.admin-jadwal-page .page-content .table-responsive tr td.waktu span:hover {
+.admin-jadwal-page .page-content .table-responsive tr td.col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.admin-jadwal-page .page-content .table-responsive tr td.waktu span:hover, .admin-jadwal-page .page-content .table-responsive tr td.tempat span:hover {
   cursor: pointer;
   font-weight: 600;
 }
-.admin-jadwal-page .page-content .table-responsive tr td input {
+.admin-jadwal-page .page-content .table-responsive tr td form {
   display: none;
 }
-.admin-jadwal-page .page-content .table-responsive tr td input.active {
+.admin-jadwal-page .page-content .table-responsive tr td form.active {
   display: block;
+}
+.admin-jadwal-page .page-content .table-responsive tr td form .save-edited-btn {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  padding: 10px;
 }/*# sourceMappingURL=admin-jadwal-page.css.map */

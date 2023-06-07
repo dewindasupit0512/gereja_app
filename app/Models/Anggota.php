@@ -27,7 +27,14 @@ class Anggota extends Model
             'id',   // kasih ini dari Anggota
             'id_peran', // kasih ini dari PeranAnggota ke Peran
         );
-        
+    }
+
+    public function peran_anggota() {
+        return $this->hasMany(
+            PeranAnggota::class,
+            'id_anggota',
+            'id',
+        );
     }
 
 

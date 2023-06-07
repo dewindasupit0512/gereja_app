@@ -1,0 +1,56 @@
+@startuml TambahIbadah
+' Declare
+actor Admin as admin
+boundary HalamanLogin as login_page
+boundary HalamanAdmin as admin_page
+boundary HalamanDataIbadah as Ibadah_page
+control TambahIbadahController as Ibadah_page_controller
+entity Ibadah as Ibadah
+database TabelIbadah as Ibadah_table
+
+
+' Flow
+activate admin
+admin -> login_page : username, password
+
+activate login_page
+login_page -> admin_page : buka halaman admin
+deactivate login_page
+activate admin_page
+
+admin_page -> Ibadah_page : buka halaman data Ibadah
+activate Ibadah_page
+
+activate Ibadah_page
+Ibadah_page -> Ibadah_page_controller : proses data Ibadah
+activate Ibadah_page_controller
+Ibadah_page_controller -> Ibadah_page_controller : validasi data Ibadah
+activate Ibadah_page_controller #Yellow
+Ibadah_page_controller -> Ibadah_page :  validasi gagal
+Ibadah_page_controller -> Ibadah : data Ibadah tervalidasi
+deactivate Ibadah_page_controller
+
+activate Ibadah
+Ibadah -> Ibadah_table : simpan data Ibadah
+activate Ibadah_table
+
+Ibadah_table -> Ibadah : data Ibadah tersimpan
+deactivate Ibadah_table
+
+Ibadah -> Ibadah_page_controller
+deactivate Ibadah
+
+Ibadah_page_controller -> Ibadah_page :  data Ibadah tersimpan
+deactivate Ibadah_page_controller
+
+Ibadah_page -> admin_page : keluar halaman tambah Ibadah
+deactivate Ibadah_page
+
+admin_page -> admin : logout
+deactivate admin_page
+deactivate admin
+
+
+
+
+@enduml

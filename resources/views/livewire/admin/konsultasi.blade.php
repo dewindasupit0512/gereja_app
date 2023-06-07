@@ -19,6 +19,7 @@
                         <td>Nama</td>
                         <td>Email / HP</td>
                         <td>Pesan</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,9 @@
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->email }} / {{ $data->phone }}</td>
                             <td>{{ $data->message }}</td>
+                            <td>
+                                <button wire:click='delete_message({{ $data->id }})' class="btn btn-danger">Hapus</button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

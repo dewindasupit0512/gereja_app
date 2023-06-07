@@ -42,18 +42,30 @@
                 </thead>
                 <tbody>
                     @foreach ($JadwalIbadah as $jadwal)
-                        <tr>
+                        <tr data-id={{ $jadwal->id }}>
                             <td class="waktu">
                                 <span>{{ $jadwal->waktu }}</span>
-                                <form>
-                                    <input class="form-control" type="datetime-local" value="{{ $jadwal->waktu }}" data-id={{ $jadwal->id }}>
+                                <form action="">
+                                    <input class="form-control" type="datetime-local" value="{{ $jadwal->waktu }}">
+                                    <button class="save-edited-time-btn btn btn-primary" type="button">Simpan</button>
                                 </form>
                             </td>
-                            <td>
-                                {{ $jadwal->lokasi->keluarga }}
+                            <td class="tempat col">
+                                <span>{{ $jadwal->lokasi->keluarga }}</span>
+                                <form action="">
+                                    <select class="form-select toggleable" aria-label="Pilih tempat ibadah">
+                                        <option selected>Pilih tempat ibadah</option>\
+                                        @foreach ($Jemaat as $jm)
+                                            <option value="{{ $jm->id }}">{{ $jm->keluarga }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button class="save-edited-place-btn btn btn-primary" type="button">Simpan</button>
+                                </form>
                             </td>
                             @foreach ($jadwal->peran_anggota as $peran)
-                                <td>{{ $this->get_anggota($peran->id_anggota)->nama }}</td>
+                                <td>
+                                    {{ $this->get_anggota($peran->id_anggota)->nama }}
+                                </td>
                             @endforeach
                         </tr>
                     @endforeach
@@ -74,7 +86,24 @@
 
     $('td.waktu span').on('click', function() {
         td_input_hide()
-        $( this ).parent().find('input').first().toggleClass('active')
+        $( this ).parent().find('form').first().toggleClass('active')
+    })
+
+    $('td.tempat span').on('click', function() {
+        td_input_hide()
+        $( this ).parent().find('form').first().toggleClass('active')
+    })
+
+    $('.save-edited-time-btn').on('click', function() {
+        let inputId = $( this ).parents('tr').data('id')
+        let inputVal = $( this ).parent().find('input').val()
+        Livewire.emit('updateDateTime', inputId, inputVal)
+    })
+
+    $('.save-edited-place-btn').on('click', function() {
+        let inputId = $( this ).parents('tr').data('id')
+        let inputVal = $( this ).parent().find('select').val()
+        Livewire.emit('updatePlace', inputId, inputVal)
     })
 
     $('td.waktu input').click(function () {

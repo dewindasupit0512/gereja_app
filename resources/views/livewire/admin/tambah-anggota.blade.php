@@ -17,7 +17,6 @@
                 <label for="nama" class="label-material">Nama</label>
             </div>
             <button type="submit" name="btnAdd" class="btn btn-primary">Tambah</button>
-            
             <div class="checkbox-wrapper">
                 @foreach ($perans as $peran)
                     <div class="form-check">
@@ -43,12 +42,30 @@
                             <td>{{ $anggota->id }}</td>
                             <td>{{ $anggota->nama }}</td>
                             <td>
-                                @foreach ($anggota->peran as $peran)
-                                    {{ $peran->peran }}, 
-                                @endforeach
+                                @if ($anggota->id != $edit_id)
+                                    @foreach ($anggota->peran as $peran)
+                                        {{ $peran->peran }}, 
+                                    @endforeach
+                                @else
+                                    <div class="peran-wrapper">
+                                        @foreach ($perans as $peran)
+                                            <div class="form-check">
+                                                <input wire:model='edit_peran_anggota' type="checkbox" class="form-check-input" value="{{ $peran->id }}" id='{{ $anggota }}-peran-{{ $peran->id }}-checkbox'>
+                                                <label for="{{ $anggota }}--peran-{{ $peran->id }}-checkbox" class="form-check-label">{{ $peran->peran }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
+
                             </td>
                             <td>
-                                <a href="#">Edit</a>
+                                <button wire:click='delete_anggota({{ $anggota->id }})' class="btn btn-danger" style="font-size: 0.8rem">Hapus</button>
+                                @if ($anggota->id != $edit_id)
+                                    <button wire:click="set_edit_state({{ $anggota }})" class="edit-btn btn btn-primary" style="font-size: 0.8rem">Edit</button>
+                                @else
+                                    <button wire:click="save_edited" class="edit-btn btn btn-success" style="font-size: 0.8rem">Simpan</button>
+                                @endif
+                                
                             </td>
                         </tr>
                     @endforeach

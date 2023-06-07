@@ -8,11 +8,14 @@ use Illuminate\Support\Str;
 
 class IbadahPage extends Component
 {
-
     // Binding Variable
     public $nama_ibadah;
     public $hari_ibadah;
     public $waktu_ibadah;
+
+    public $edit_id;
+    public $edit_day;
+    public $edit_time;
 
     protected $rules = [
         'nama_ibadah' => 'required|string',
@@ -24,6 +27,9 @@ class IbadahPage extends Component
         $this->nama_ibadah = '';
         $this->hari_Ibadah = '';
         $this->waktu_ibadah = '';
+        $this->edit_id = null;
+        $this->edit_day = '';
+        $this->edit_time = '';
     }
 
     public function render()
@@ -70,6 +76,36 @@ class IbadahPage extends Component
             return 'Sabtu';
         }
         return null;
+    }
+
+    public function set_edit_state($id) {
+        $this->edit_id = $id;
+
+        $editData = Ibadah::find($id);
+        if ($editData) {
+            $this->edit_day = $editData->hari;
+            $this->edit_time = $editData->jam;
+        }
+    }
+
+    public function save_edited() {
+        $editIbadah = Ibadah::find($this->edit_id);
+        if ($editIbadah) {
+            $editIbadah->hari = $this->edit_day;
+            $editIbadah->jam = $this->edit_time;
+            $editIbadah->save();
+        }
+        
+        $this->edit_id = null;
+        $this->edit_day = '';
+        $this->edit_time = '';
+    }
+
+    public function delete_record($id) {
+        $deleteData = Ibadah::find($id);
+        if ($deleteData) {
+            $deleteData->delete();
+        }
     }
 
 }

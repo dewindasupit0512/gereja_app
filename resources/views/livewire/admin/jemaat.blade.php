@@ -47,7 +47,7 @@
                     <option value="laki-laki">Laki - laki</option>
                     <option value="perempuan">Perempuan</option>
                 </select>
-                <label for="hari_Ibadah">Jenis Kelamin</label>
+                <label for="jenis_kelamin">Jenis Kelamin</label>
             </div>
             
             <div class="form-floating">
@@ -58,7 +58,7 @@
                     <option value="pria">Pria</option>
                     <option value="wanita">Wanita</option>
                 </select>
-                <label for="hari_Ibadah">Status</label>
+                <label for="status">Status</label>
             </div>
 
             <button type="submit" class="btn btn-primary">Tambah</button>
@@ -81,13 +81,80 @@
                     @foreach ($jemaats as $jemaat)
                         <tr>
                             <td>{{ $jemaat->id }}</td>
-                            <td>{{ $jemaat->nama }}</td>
-                            <td>{{ $jemaat->keluarga }}</td>
-                            <td>{{ $jemaat->rayon }}</td>
-                            <td>{{ $jemaat->jenis_kelamin }}</td>
-                            <td>{{ $jemaat->status }}</td>
-                            <td>{{ $jemaat->tanggal_lahir }}</td>
-                            <td><a href="#">Edit</a></td>
+                            <td>
+                                @if ($jemaat->id != $edit_id)
+                                    {{ $jemaat->nama }}
+                                @else
+                                    <div class="input-group">
+                                        <input wire:model='edit_nama' id="edit_nama" type="text" required data-msg="Masukkan nama lengkap jemaat" class="input-material" placeholder="Nama Lengkap">
+                                    </div>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($jemaat->id != $edit_id)
+                                    {{ $jemaat->keluarga }}
+                                @else
+                                    <div class="input-group">
+                                        <input wire:model='edit_keluarga' id="edit_keluarga" type="text" data-msg="Masukkan keluarga" class="input-material" placeholder="keluarga">
+                                    </div>                    
+                                @endif
+                            </td>
+                            <td>
+                                @if ($jemaat->id != $edit_id)
+                                    {{ $jemaat->rayon }}
+                                @else
+                                    <div class="input-group">
+                                        <input wire:model='edit_rayon' id="edit_rayon" type="number" min="1" class="input-material" placeholder="rayon">
+                                    </div>                    
+                                @endif
+                            </td>
+                            <td>
+                                @if ($jemaat->id != $edit_id)
+                                    {{ $jemaat->jenis_kelamin }}
+                                @else
+                                    <div class="form-floating">
+                                        <select wire:model='edit_jenis_kelamin' id="edit_jenis_kelamin" class="form-select">
+                                            <option selected>Pilih jenis_kelamin</option>
+                                            <option value="laki-laki">Laki - laki</option>
+                                            <option value="perempuan">Perempuan</option>
+                                        </select>
+                                        <label for="edit_jenis_kelamin">Jenis Kelamin</label>
+                                    </div>
+                                @endif                    
+                            </td>
+                            <td>
+                                @if ($jemaat->id != $edit_id)
+                                    {{ $jemaat->status }}
+                                @else
+                                    <div class="form-floating">
+                                        <select wire:model='edit_status' id="edit_status" class="form-select">
+                                            <option selected>Pilih status</option>
+                                            <option value="pemuda-remaja">Pemuda / Remaja</option>
+                                            <option value="sekolah-minggu">Sekolah Minggu</option>
+                                            <option value="pria">Pria</option>
+                                            <option value="wanita">Wanita</option>
+                                        </select>
+                                        <label for="edit_status">Status</label>
+                                    </div>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($jemaat->id != $edit_id)
+                                    {{ $jemaat->tanggal_lahir }}
+                                @else
+                                    <div class="form-group-material">
+                                        <input wire:model='edit_tanggal_lahir' id="edit_tanggal_lahir" type="date" data-msg="Masukkan tanggal lahir" class="input-material">
+                                    </div>
+                                @endif                    
+                            </td>
+                            <td>
+                                @if ($jemaat->id != $edit_id)
+                                    <button wire:click='set_edit_state({{ $jemaat->id }})' class="btn btn-primary">Edit</button>
+                                @else
+                                    <button wire:click='save_edited' class="btn btn-success">Simpan</button>
+                                    <button wire:click='delete_record({{ $jemaat->id }})' class="btn btn-danger">Hapus</button>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

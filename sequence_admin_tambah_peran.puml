@@ -1,0 +1,62 @@
+@startuml
+
+' Declare
+actor Admin as admin
+boundary HalamanLogin as login_page
+boundary HalamanAdmin as admin_page
+boundary TambahPeran as role_add
+control TambahPeranController as role_add_controller
+entity Peran as role
+database TabelPeran as role_table
+
+
+' Flow
+activate admin
+admin -> login_page : username, password
+
+activate login_page
+login_page -> admin_page : buka halaman admin
+deactivate login_page
+
+activate admin_page
+admin_page -> role_add : buka halaman tambah Peran
+
+activate role_add
+role_add -> role_add_controller : proses data Peran
+activate role_add_controller
+role_add_controller -> role_add_controller : validasi data Peran
+activate role_add_controller #Yellow
+role_add_controller -> role_add :  validasi gagal
+role_add_controller -> role : data Peran tervalidasi
+deactivate role_add_controller
+
+activate role
+role -> role_table : simpan data Peran
+activate role_table
+
+role_table -> role : data Peran tersimpan
+deactivate role_table
+
+role -> role_add_controller
+deactivate role
+
+role_add_controller -> role_add :  data Peran tersimpan
+deactivate role_add_controller
+
+role_add -> admin_page : keluar halaman tambah Peran
+deactivate role_add
+
+admin_page -> admin : logout
+deactivate admin_page
+deactivate admin
+
+
+
+
+
+
+
+
+
+
+@enduml

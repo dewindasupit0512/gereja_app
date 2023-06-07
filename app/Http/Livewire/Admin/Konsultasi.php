@@ -18,4 +18,12 @@ class Konsultasi extends Component
     {
         return view('livewire.admin.konsultasi')->layout('layouts.admin_app');
     }
+
+    public function delete_message($id) {
+        $deleteMsg = KonsultasiModel::find($id);
+        if ($deleteMsg) {
+            $deleteMsg->delete();
+            return redirect(request()->header('Referer'));
+        }
+    }
 }

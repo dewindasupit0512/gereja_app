@@ -23,7 +23,10 @@ class JadwalDetail extends Component
     public $perans;
     public $status;
 
-    protected $listeners = ['updateDateTime' => 'update_date_time'];
+    protected $listeners = [
+        'updateDateTime' => 'update_date_time',
+        'updatePlace' => 'update_place',
+    ];
 
     public function mount($generate_id) {
         $this->generate_id = $generate_id;
@@ -39,8 +42,8 @@ class JadwalDetail extends Component
         $this->JadwalGenerate = JadwalGenerate::with('ibadah')->find($this->generate_id);
         $this->status = $this->JadwalGenerate->active_status;
         
-        $this->Jemaat = Jemaat::where('status', '=', $this->JadwalGenerate->ibadah->status)->get();
-        
+        $this->Jemaat = Jemaat::where('status', '=', $this->JadwalGenerate->ibadah->name_slug)->get();
+
         foreach($this->JadwalIbadah->first()->peran_anggota as $peran) {
             array_push($this->perans, $this->get_peran($peran->id_peran));
         }
@@ -74,7 +77,15 @@ class JadwalDetail extends Component
             $jadwalUpdate->save();
             return redirect(request()->header('Referer'));
         }
+    }
 
+    public function update_place($jadwal_id, $values) {
+        $jadwalUpdate = JadwalIbadah::find($jadwal_id);
+        if ($jadwalUpdate) {
+            $jadwalUpdate->tempat_ibadah = $values;
+            $jadwalUpdate->save();
+            return redirect(request()->header('Referer'));
+        }
     }
 
     public function delete_jadwal_ibadah($jadwal_id) {

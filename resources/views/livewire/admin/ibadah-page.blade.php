@@ -54,9 +54,42 @@
                     @foreach ($ibadah_list as $ibadah)
                         <tr>
                             <td>{{ $ibadah->name }}</td>
-                            <td>{{ $this->translate_hari($ibadah->hari) }}</td>
-                            <td>{{ $ibadah->jam }}</td>
-                            <td><a href="#">Edit</a></td>
+                            <td>
+                                @if ($ibadah->id != $edit_id)
+                                    {{ $this->translate_hari($ibadah->hari) }}
+                                @else
+                                    <div class="form-floating">
+                                        <select wire:model='edit_day' id="edit_hari_Ibadah" class="form-select" style="font-size: 0.9rem">
+                                            <option selected>Pilih hari ibadah</option>
+                                            <option value="0">Minggu</option>
+                                            <option value="1">Senin</option>
+                                            <option value="2">Selasa</option>
+                                            <option value="3">Rabu</option>
+                                            <option value="4">Kamis</option>
+                                            <option value="5">Jumat</option>
+                                            <option value="6">Sabtu</option>
+                                        </select>
+                                        <label for="edit_hari_Ibadah">Hari Ibadah</label>
+                                    </div>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($ibadah->id != $edit_id)
+                                    {{ $ibadah->jam }}
+                                @else
+                                    <div class="from-group-material">
+                                        <input wire:model='edit_time' type="time" class="form-control" style="font-size: 0.9rem">
+                                    </div>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($ibadah->id != $edit_id)
+                                    <button wire:click='set_edit_state({{ $ibadah->id }})' style="font-size: 0.8rem" class="btn btn-primary">Edit</button>
+                                @else
+                                    <button wire:click='save_edited' style="font-size: 0.8rem" class="btn btn-success">Simpan</button>
+                                    <button wire:click='delete_record({{ $ibadah->id }})' style="font-size: 0.8rem" class="btn btn-danger">Hapus</button>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
