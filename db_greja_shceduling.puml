@@ -13,6 +13,19 @@ Entity User {
     * updated_at DATETIME
 }
 
+Entity Keuangan {
+    * id BIGINT PRIMARY_KEY
+    --
+    * jumlah BIGINT
+    * status STRING
+    ' pemasukan / pengeluaran
+    * tanggal_terdaftar STRING
+    keterangan STRING
+    --
+    * created_at DATETIME
+    * updated_at DATETIME
+}
+
 Entity Konsultasi {
     * id PRIMARY_KEY
     --

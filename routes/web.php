@@ -13,6 +13,7 @@ use App\Http\Livewire\Base\IbadahDetail;
 use App\Http\Livewire\Admin\JadwalDetail;
 use App\Http\Livewire\Admin\TambahAnggota;
 use App\Http\Livewire\Admin\Konsultasi as AdminKonsultasi;
+use App\Http\Livewire\Admin\Keuangan as AdminKeuangan;
 
 Route::get('/', HomePage::class)->name('home-page');
 Route::get('/login', Login::class)->name('login');
@@ -35,5 +36,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/atur-jadwal', JadwalPage::class)->name('admin.atur-jadwal');
         Route::get('/jadwal/{generate_id}', JadwalDetail::class)->name('admin.jadwal-detail');
         Route::get('/pesan', AdminKonsultasi::class)->name('admin.pesan');
+        Route::get('/keuangan', AdminKeuangan::class)->name('admin.keuangan');
     });
 });

@@ -4,4 +4,19 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+section.money-report {
+  width: 100%;
+  background-color: "#f5f7fa";
+}
+section.money-report .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+section.money-report .container .section_title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: black;
 }/*# sourceMappingURL=home-page.css.map */

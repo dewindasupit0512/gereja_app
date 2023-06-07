@@ -213,6 +213,37 @@
 		</div>		
 	</div>
 
+    <section class="money-report">
+        <div class="container">
+            <h2 class="section_title">Laporan Keuangan</h2>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>Jumlah</th>
+                            <th>Keterangan</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($Keuangan as $item)
+                            <tr>
+                                <td>{{ $item->tanggal_terdaftar }}</td>
+                                <td>{{ $item->status }}</td>
+                                <td>{{ $item->jumlah }}</td>
+                                <td>{{ $item->keterangan }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
 
     
 

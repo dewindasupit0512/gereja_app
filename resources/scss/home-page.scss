@@ -9,3 +9,20 @@
     }
 
 }
+
+section.money-report {
+    width: 100%;
+    background-color: '#f5f7fa';
+
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .section_title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: black;
+        }
+    }
+}

@@ -21,7 +21,7 @@
               <li><a href="{{ route('admin.jemaat') }}">Data Jemaat</a></li>
               <li><a href="{{ route('admin.atur-ibadah') }}">Atur Ibadah</a></li>
               <li><a href="{{ route('admin.atur-jadwal') }}">Atur Jadwal</a></li>
-              {{-- <li><a href="#">Atur Jadwal</a></li> --}}
+              <li><a href="{{ route('admin.keuangan') }}">Infomasi Keuangan</a></li>
             </ul>
           </li>
       </div>

@@ -6,6 +6,7 @@ use DateTime;
 use App\Models\Jemaat;
 use Livewire\Component;
 use App\Models\JadwalGenerate;
+use App\Models\Keuangan as KeuanganModel;
 use Illuminate\Support\Facades\Hash;
 
 class HomePage extends Component
@@ -13,12 +14,14 @@ class HomePage extends Component
     
     // Model Variable
     public $JadwalGenerate;
+    public $Keuangan;
 
     public function mount() {
         $this->JadwalGenerate = JadwalGenerate::with(['jadwal_ibadah', 'ibadah'])
                                     ->where('active_status', '=', true)
                                     ->get();
-        // dd( $this->JadwalGenerate->first(), $this->get_relevant_jadwal($this->JadwalGenerate->first()) );
+
+        $this->Keuangan = KeuanganModel::orderBy('tanggal_terdaftar', 'desc')->get()->take(10);
     }
 
     public function render()

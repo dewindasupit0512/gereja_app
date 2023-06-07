@@ -1,0 +1,10 @@
+.admin-keuangan .page-content .head-form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.admin-keuangan .page-content .form-group-material {
+  margin-bottom: 0;
+}/*# sourceMappingURL=admin-keuangan.css.map */

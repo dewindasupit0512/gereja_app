@@ -73,8 +73,6 @@ class TambahAnggota extends Component
             array_push($this->edit_peran_anggota, $peran['id']);
         }
         
-
-
         $this->edit_id = $anggota['id'];
     }
 
