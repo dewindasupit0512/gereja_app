@@ -19,7 +19,7 @@
             <div class="page-content">
                 <div class="content-row">
                     <span class="row-title">Tempat Ibadah</span>
-                    <span class="row-content">{{ $this->get_jemaat($JadwalIbadah->tempat_ibadah)->nama }}, keluarga : {{ $this->get_jemaat($JadwalIbadah->tempat_ibadah)->keluarga }}</span>
+                    <span class="row-content">{{ $this->get_jemaat($JadwalIbadah->tempat_ibadah)->nama }}, @if($JadwalIbadah->ibadah->id != 2)keluarga : {{ $this->get_jemaat($JadwalIbadah->tempat_ibadah)->keluarga }}@endif</span>
                 </div>
                 <div class="content-row">
                     <span class="row-title">Tanggal dan waktu</span>

@@ -52,15 +52,17 @@
                             </td>
                             <td class="tempat col">
                                 <span>{{ $jadwal->lokasi->keluarga }}</span>
-                                <form action="">
-                                    <select class="form-select toggleable" aria-label="Pilih tempat ibadah">
-                                        <option selected>Pilih tempat ibadah</option>\
-                                        @foreach ($Jemaat as $jm)
-                                            <option value="{{ $jm->id }}">{{ $jm->keluarga }}</option>
-                                        @endforeach
-                                    </select>
-                                    <button class="save-edited-place-btn btn btn-primary" type="button">Simpan</button>
-                                </form>
+                                @if ($JadwalGenerate->ibadah_id != 2)
+                                    <form action="">
+                                        <select class="form-select toggleable" aria-label="Pilih tempat ibadah">
+                                            <option selected>Pilih tempat ibadah</option>\
+                                            @foreach ($Jemaat as $jm)
+                                                <option value="{{ $jm->id }}">{{ $jm->keluarga }}</option>
+                                            @endforeach
+                                        </select>
+                                        <button class="save-edited-place-btn btn btn-primary" type="button">Simpan</button>
+                                    </form>                                    
+                                @endif
                             </td>
                             @foreach ($jadwal->peran_anggota as $peran)
                                 <td>

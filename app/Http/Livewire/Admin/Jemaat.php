@@ -48,7 +48,7 @@ class Jemaat extends Component
 
     public function render()
     {
-        $jemaat = JemaatModel::get();
+        $jemaat = JemaatModel::where('status', '!=', 'raya')->get();
 
         return view('livewire.admin.jemaat', ['jemaats' => $jemaat])->layout('layouts.admin_app');
     }

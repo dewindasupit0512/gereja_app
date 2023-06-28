@@ -81,7 +81,26 @@ class JadwalPage extends Component
             ]);
         }
 
+        // Checkpoint Fix this!!!
+        // if ($this->selected_ibadah == 'raya') {
+        //     $this->jemaat = $this->filter_jemaat_model($this->selected_ibadah);
+            
+        //     // dd($this->jemaat);
+        // } else {
+        //     $this->jemaat = $this->filter_jemaat_model($this->selected_ibadah);
+        // }
+        
         $this->jemaat = $this->filter_jemaat_model($this->selected_ibadah);
+        $places = $this->jemaat->toArray();
+        // dd($places);
+        
+        // if ($this->selected_ibadah != 'raya') {
+        //     $places = $this->jemaat->toArray();
+        // } else {
+        //     $places = array($this->jemaat->toArray());
+        // }
+        // dd($this->selected_ibadah, $places);
+        
         $this->anggota = PeranAnggota::whereIn('id_peran', $this->peran_anggota)->with(['anggota', 'peran'])->get()->all();
         
         $this->peran_anggota_id_dict = array_combine($this->peran_anggota, array_fill(0, count($this->peran_anggota), []));
@@ -92,13 +111,16 @@ class JadwalPage extends Component
             }
         }
 
-        $initial_pop = $this->generate_population($this->jumlah_jadwal, $this->jemaat->toArray(), $this->peran_anggota, $this->peran_anggota_id_dict);
+        $initial_pop = $this->generate_population($this->jumlah_jadwal, $places, $this->peran_anggota, $this->peran_anggota_id_dict);
         $initial_pop_score =  $this->count_score($initial_pop);
         
         $optimized_pop =  $this->genetic_algorithm_optimize($initial_pop);
         $optimized_pop_score =  $this->count_score($optimized_pop);
 
         $Ibadah = Ibadah::where('name_slug', '=', $this->selected_ibadah)->first();        
+        
+        // dd($optimized_pop);
+        
         $this->store_generated_jadwal(
             $optimized_pop,
             $Ibadah,
@@ -113,7 +135,8 @@ class JadwalPage extends Component
             return Jemaat::where('status' , '=', 'pemuda-remaja')->get();
         }
         else if ($ibadah == 'raya') {
-            return Jemaat::get(2);
+            return Jemaat::where('status' , '=', 'raya')->get();
+            // return Jemaat::find(1);
         }
         else if ($ibadah == 'rayon') {
             return Jemaat::where('rayon', '=', $this->rayon)
