@@ -137,6 +137,7 @@ class JadwalPage extends Component
         else if ($ibadah == 'raya') {
             return Jemaat::where('status' , '=', 'raya')->get();
             // return Jemaat::find(1);
+            // 
         }
         else if ($ibadah == 'rayon') {
             return Jemaat::where('rayon', '=', $this->rayon)
